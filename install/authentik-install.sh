@@ -137,6 +137,7 @@ $STD yq -i ".secret_key = \"$(openssl rand -hex 32)\"" /etc/authentik/config.yml
 $STD yq -i ".postgresql.password = \"${DB_PASS}\"" /etc/authentik/config.yml
 $STD yq -i ".geoip = \"/opt/authentik/tests/GeoLite2-City-Test.mmdb\"" /etc/authentik/config.yml
 cp -r /opt/authentik/authentik/blueprints /opt/authentik/blueprints
+cp -r /opt/authentik/web /opt/authentik/authentik/web
 $STD yq -i ".blueprints_dir = \"/opt/authentik/blueprints\"" /etc/authentik/config.yml
 ln -s /usr/bin/python3 /usr/bin/python
 ln -s /usr/local/bin/gunicorn /usr/bin/gunicorn
